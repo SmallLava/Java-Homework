@@ -1,5 +1,6 @@
 // 111316030 陳祐宇
 // 直接輸入n個整數 以空格分開
+// 輸入直到非整數救回輸出結果 若同行輸入則只輸出非整數輸入前的結果
 import java.util.Arrays; //Arrays用以簡化擴充陣列
 import java.util.Scanner;
 
@@ -12,7 +13,7 @@ public class hw_2nd_sort {
             target[target.length - 1] = scn.nextInt();
         }
         int[] sorted = new int[target.length];
-        int index = Integer.MIN_VALUE;
+        int index = 0;
         while(index < sorted.length) { //依序對輸出陣列填值(index為目前改變目標)
             int max = Integer.MIN_VALUE;
             for(int h:target) { //遍歷輸入陣列找最大值
