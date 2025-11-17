@@ -47,7 +47,8 @@ public class hw_4nd_calendar {
             maxDate = 31;
         }
         int count = 1;
-        int shiftDate = date.getDayOfWeek().getValue() - (date.getDayOfMonth() % 7) + 1;
+        int shiftDate = date.getDayOfWeek().getValue() - (date.getDayOfMonth() % 7);
+        shiftDate = shiftDate < -1 ? shiftDate + 8 : shiftDate + 1;
         int[] calendar = new int[maxDate + shiftDate];
         for (int i = shiftDate; i < maxDate + shiftDate; i++) {
             calendar[i] = count;
