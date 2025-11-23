@@ -19,10 +19,10 @@ public class hw_4nd_calendar {
     public static List<List<Integer>> separateDate(int[] monthDate) {
         List<List<Integer>> chunks = new ArrayList<>();
 
-            for (int i = 0; i < monthDate.length; i += 7) {
+            for (int i = 0; i < monthDate.length; i += 7) { //把傳入的月份天數以7分割
             int end = Math.min(monthDate.length, i + 7);
             List<Integer> chunk = new ArrayList<>();
-            for (int j = i; j < end; j++) chunk.add(monthDate[j]);
+            for (int j = i; j < end; j++) chunk.add(monthDate[j]); //每7天(一個禮拜)就存一次
             chunks.add(chunk);
         }
         return chunks;
@@ -50,13 +50,13 @@ public class hw_4nd_calendar {
         int shiftDate = date.getDayOfWeek().getValue() - (date.getDayOfMonth() % 7);
         shiftDate = shiftDate < -1 ? shiftDate + 8 : shiftDate + 1;
         int[] calendar = new int[maxDate + shiftDate];
-        for (int i = shiftDate; i < maxDate + shiftDate; i++) {
+        for (int i = shiftDate; i < maxDate + shiftDate; i++) { //計算初始偏移天數後輸出月歷
             calendar[i] = count;
             count++;
         }
         List<List<Integer>> output = separateDate(calendar);
-        for (int index = 0; index < output.size(); index++) {
-            for (int i = 0; i < output.get(index).size(); i++) {
+        for (int index = 0; index < output.size(); index++) { //迴圈輸出(計算n禮拜)
+            for (int i = 0; i < output.get(index).size(); i++) { //迴圈輸出(計算n天)
                 if(output.get(index).get(i) != 0) {
                     System.out.printf("%-2d ", output.get(index).get(i));
                 } else {
@@ -65,5 +65,6 @@ public class hw_4nd_calendar {
             }
             System.out.printf("\n");
         }
+        scn.close();
     }
 }
