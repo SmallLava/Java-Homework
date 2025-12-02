@@ -34,5 +34,6 @@ public class hw_2nd_sort {
         for(int i:sorted) { //遍歷已排序陣列並輸出
             System.out.printf("%d ", i);
         }
+        scn.close();
     }
 }

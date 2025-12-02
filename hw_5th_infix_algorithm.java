@@ -16,7 +16,7 @@ public class hw_5th_infix_algorithm {
     private static int countInfix(String[] calculate) {
         Stack<Integer> operand = new Stack<>();
         Stack<String> operator = new Stack<>();
-        Set operatorsSet = new HashSet<>(Set.of("+", "-", "*", "/", "(", ")"));
+        Set<String> operatorsSet = new HashSet<>(Set.of("+", "-", "*", "/", "(", ")"));
         for (String index : calculate) {
             if (!operatorsSet.contains(index)) {
                 operand.push(Integer.valueOf(index));
